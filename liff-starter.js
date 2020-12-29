@@ -169,7 +169,7 @@ function sendMessage() {
 function openExternalBrowser() {
     document.getElementById('openWindowButton').addEventListener('click', function () {
         liff.openWindow({
-            url: 'https://feedme204.herokuapp.com/',
+            url: 'https://manganopo.herokuapp.com/',
             external: true
         });
     });
