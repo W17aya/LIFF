@@ -1,114 +1,73 @@
-<!DOCTYPE HTML>
-<html>
- 
-<head>
-    <title>Catatan Harianku</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
- 
-    <style>
-        .table>thead>tr>th {
-            padding: 60px;
-        }
-    </style>
- 
- 
-</head>
- 
-<body onload="loadCatatan();">
- 
-    <div class="col-xs-12 col-md-8 col-md-offset-2" ng-controller="listContactCtrl">
-        <div class="page-header">
-            <h1 align="center">
-                Catatan Harianku
-            </h1>
-            <ul class="nav nav-pills">
-                <li><a id="nav-list-catatan" href="javascript:void(0);" onclick="gantiMenu('list-catatan');">List Catatan</a></li>
-                <li><a id="nav-tambah-catatan" href="javascript:void(0);" onclick="gantiMenu('tambah-catatan');">Tambah Catatan</a></li>
-            </ul>
- 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>FeedMe!</title>
+  </head>
+  <body>
+    <div id="loginForm" class="container">
+        <p>Mohon untuk click login dibawah ini!</p>
+        <button id="liffLoginButton" class="btn btn-primary">LOGIN</button>
+    </div>
+    <div id="userHasLogin" class="container">        
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <div id="profilePictureDiv"></div>   
+                        <strong id="username"></strong>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <h5>Hello, Selamat Datang di <strong>FeedMe.</strong></h5>
+                        <h6>Mau pesan apa kak ?</h6>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="tambah-catatan" class="well" style="display:none;">
-            <form id="form-data">
-                <div id="nama-group" class="form-group">
-                    <label>Nama:</label>
-                    <input type="text" class="form-control" id="nama" name="nama">
-                </div>
-                <div id="tanggal-group" class="form-group">
-                    <label>Tanggal:</label>
-                    <input type="text" class="form-control" id="tanggal" name="tanggal">
-                </div>
-                <div id="agenda-group" class="form-group">
-                    <label>Agenda:</label>
-                    <textarea class="form-control" id="agenda" name="agenda"></textarea><br />
-                </div>
-                <input type="button" value="Simpan" onclick="simpanData();" class="btn btn-success btn-small" />
-                <input type="reset" value="Reset" onclick="" class="btn btn-warning btn-small" />
-            </form>
+        <div class="row mt-2">
+            <div class="col-12">
+                <h2><strong>Food</strong></h2>
+                <div class="food-container"></div>
+            </div>
+            <div class="col-12">
+                <h2><strong>Drink</strong></h2>
+                <div class="drink-container"></div>
+            </div>
         </div>
- 
-        <div id="edit-data" class="well" style="display:none;">
-            <form id="eform-data">
- 
-                <div id="nama-group" class="form-group" style="display:none;">
-                    <label>id data:</label>
-                    <input type="text" class="form-control" id="eid_data" name="nama">
-                </div>
- 
-                <div id="nama-group" class="form-group">
-                    <label>Nama:</label>
-                    <input type="text" class="form-control" id="enama" name="nama">
-                </div>
-                <div id="tanggal-group" class="form-group">
-                    <label>Tanggal:</label>
-                    <input type="text" class="form-control" id="etanggal" name="tanggal">
-                </div>
-                <div id="agenda-group" class="form-group">
-                    <label>Agenda:</label>
-                    <textarea class="form-control" id="eagenda" name="agenda"></textarea><br />
-                </div>
-                <input type="button" value="Simpan" onclick="simpanEditData();" class="btn btn-success btn-small" />
-                <input type="reset" value="Reset" onclick="" class="btn btn-warning btn-small" />
-                <input type="button" value="Cancel" onclick="gantiMenu('list-catatan');"
-                    class="btn btn-warning btn-small" />
-            </form>
+        <hr>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-6 ">
+                <h5>Ringkasan</h5>
+                <p>Pesanan : <strong><span class="sum-order-food"></span></strong> Makanan dan <strong><span class="sum-order-drink"></span></strong> Minuman</p>
+            </div>
+            <div class="col-6 d-flex justify-content-end flex-column align-items-end">
+                <p>Total : <span class="sum-of-price"></span></p>
+                <button id="sendMessageButton" class="btn btn-danger btn-lg">Order</button>
+            </div>
         </div>
- 
-        <div id="lihat-data" class="well" style="display:none;">
-            <form id="eform-data">
- 
-                <div id="nama-group" class="form-group" style="display:none;">
-                    <label for="disabled">id data:</label>
-                    <input type="text" class="form-control" id="lid_data" name="nama" disabled>
-                </div>
- 
-                <div id="nama-group" class="form-group">
-                    <label for="disabled">Nama:</label>
-                    <input type="text" class="form-control" id="lnama" name="nama" disabled>
-                </div>
-                <div id="tanggal-group" class="form-group">
-                    <label for="disabled">Tanggal:</label>
-                    <input type="text" class="form-control" id="ltanggal" name="tanggal" disabled>
-                </div>
-                <div id="agenda-group" class="form-group">
-                    <label for="disabled">Agenda:</label>
-                    <textarea class="form-control" id="lagenda" name="agenda" disabled></textarea>
-                </div>
-                <input type="button" value="Kembali" onclick="gantiMenu('list-catatan');"
-                    class="btn btn-warning btn-small" />
-            </form>
-        </div>
- 
- 
-        <div id="list-catatan" class="well">
-            Pilih List Catatan untuk melihat catatan yang sudah dibuat.
+        <div class="row">
+            <div class="col-12 text-center">
+                <button id="openWindowButton" class="btn btn-outline-primary">Buka di browser</button>
+                <button id="liffLogoutButton" class="btn btn-outline-danger">LOGOUT</button>
+            </div>
         </div>
     </div>
-</body>
-<script src="catatan-config.js"></script>
- 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="./liff-starter.js"></script>
+  </body>
 </html>
