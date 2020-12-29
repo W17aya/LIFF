@@ -1,2 +1,2 @@
-# LIFF-FEEDME
-Project Line front end framework pemesanan makanan
+# LIFF-MANGANOPO
+Line Developer Academy Dicoding Submission

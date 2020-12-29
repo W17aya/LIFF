@@ -141,7 +141,7 @@ function sendMessage() {
 
         const text =
             `
-    Terima kasih telah memesan di FeedMe
+    Terima kasih telah memesan di Manganopo
 
     Pesanan Kakak :
     ${data.sumOrderOfFood} Makanan
