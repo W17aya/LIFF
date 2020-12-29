@@ -1,41 +1,47 @@
 const data = {
-    food : [
+    food: [
         {
-            id : 1,
-            nama : "Soto Ayam",
-            harga : 9000,
-            sumOrder : 0
+            id: 1,
+            nama: "Soto Ayam",
+            harga: 9000,
+            sumOrder: 0
         },
         {
-            id : 2,
-            nama : "Bakso",
-            harga : 13000,
-            sumOrder : 0
+            id: 2,
+            nama: "Bakso",
+            harga: 13000,
+            sumOrder: 0
         },
         {
-            id : 3,
-            nama : "Nasi Goreng",
-            harga : 10000,
-            sumOrder : 0
-        },
-    ],
-    drink : [
-        {
-            id : 1,
-            nama : "Teh Es",
-            harga : 5000,
-            sumOrder : 0
-        },
-        {
-            id : 2,
-            nama : "Jeruk Anget / Es",
-            harga : 6000,
-            sumOrder : 0
+            id: 3,
+            nama: "Nasi Goreng",
+            harga: 10000,
+            sumOrder: 0
         },
     ],
-    sumOrderOfFood : 0,
-    sumOrderOfDrink : 0,
-    sumOfPrice : 0
+    drink: [
+        {
+            id: 1,
+            nama: "Teh Es",
+            harga: 5000,
+            sumOrder: 0
+        },
+        {
+            id: 2,
+            nama: "Jeruk anget",
+            harga: 6000,
+            sumOrder: 0
+        },
+        {
+            id: 3,
+            nama: "Lemon tea",
+            harga: 10000,
+            sumOrder: 0
+        },
+    ],
+    sumOrderOfFood: 0,
+    sumOrderOfDrink: 0,
+    sumOfPrice: 0
 }
 
 const _food = document.getElementsByClassName("food-container")[0]
@@ -50,7 +56,7 @@ let _drinkList = ""
 const render = () => {
     _foodList = ""
     _drinkList = ""
-    
+
     data.food.map(val => {
         _foodList += `
         <div class="row d-flex align-items-center">
@@ -66,7 +72,7 @@ const render = () => {
             </div>
         </div></div>`
     })
-    
+
     data.drink.map(val => {
         _drinkList += `
         <div class="row d-flex align-items-center">
@@ -82,7 +88,7 @@ const render = () => {
             </div>
         </div></div>`
     })
-    
+
     _food.innerHTML = _foodList
     _drink.innerHTML = _drinkList
     _sumOrderFood.innerText = data.sumOrderOfFood
@@ -145,7 +151,7 @@ const btnTambah = (id, type) => {
     render()
     sumDataFood()
     sumDataDrink()
-    
+
 }
 
 const sumDataFood = () => {
