@@ -66,7 +66,7 @@ const render = () => {
         </div>
         <div class="col-6 d-flex justify-content-end align-items-center">
             <div class="row">
-                <div class="col"><button onclick="btnKurang(${val.id},'food')" class="btn btn-warning kurang">-</button></div>
+                <div class="col"><button onclick="btnKurang(${val.id},'food')" class="btn btn-secondary kurang">-</button></div>
                 <div class="col"><span class="mx-2">${val.sumOrder}</span></div>
                 <div class="col"><button onclick="btnTambah(${val.id},'food')" class="btn btn-primary tambah">+</button></div>
             </div>
@@ -82,7 +82,7 @@ const render = () => {
         </div>
         <div class="col-6 d-flex justify-content-end align-items-center">
             <div class="row">
-                <div class="col"><button onclick="btnKurang(${val.id},'drink')" class="btn btn-warning kurang">-</button></div>
+                <div class="col"><button onclick="btnKurang(${val.id},'drink')" class="btn btn-secondary kurang">-</button></div>
                 <div class="col"><span class="mx-2">${val.sumOrder}</span></div>
                 <div class="col"><button onclick="btnTambah(${val.id},'drink')" class="btn btn-primary tambah">+</button></div>
             </div>
