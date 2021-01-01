@@ -2,40 +2,46 @@ const data = {
     food: [
         {
             id: 1,
-            nama: "Soto Ayam",
+            nama: "Tahu Kupat",
             harga: 9000,
             sumOrder: 0
         },
         {
             id: 2,
-            nama: "Bakso",
-            harga: 13000,
+            nama: "Soto Ayam",
+            harga: 7000,
             sumOrder: 0
         },
         {
             id: 3,
-            nama: "Nasi Goreng",
-            harga: 10000,
+            nama: "Ayam Penyetan",
+            harga: 15000,
             sumOrder: 0
         },
     ],
     drink: [
         {
             id: 1,
-            nama: "Teh Es",
-            harga: 5000,
+            nama: "Es Teh",
+            harga: 3000,
             sumOrder: 0
         },
         {
             id: 2,
-            nama: "Jeruk anget",
-            harga: 6000,
+            nama: "Teh Anget",
+            harga: 2000,
             sumOrder: 0
         },
         {
             id: 3,
-            nama: "Lemon tea",
-            harga: 10000,
+            nama: "Es Jeruk",
+            harga: 5000,
+            sumOrder: 0
+        },
+        {
+            id: 4,
+            nama: "Jeruk Anget",
+            harga: 4000,
             sumOrder: 0
         },
     ],
